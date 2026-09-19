@@ -77,3 +77,22 @@ Commit `1cadb65a432741833fae6bc02dba01880d908910` adds:
 - Escape-key and post-selection menu closing behavior
 - Scene progress based on the four narrative sections rather than total document height, so the footer no longer distorts the 3D scene state
 - Cleanup of the accidental literal newline escapes in social metadata
+
+
+## Visual realism pass
+
+Commit `b3bffbdc98bd5a4bac6b5ee2b24655b303dd311c` upgrades the live Three.js world with:
+- Environment reflections via Three.js RoomEnvironment
+- Softer physical lighting and a cyan rim-light layer
+- Soft shadow maps on desktop
+- Scene fog that shifts with the white → navy → white narrative
+- Improved chrome, glass, and depth response without replacing the site with flat images
+
+Post-change browser QA:
+- Desktop 1440 × 900: no horizontal overflow, WebGL canvas visible, no page/console errors
+- Dark technology scene resolves to scene state 2
+- Mobile 390 × 844: no overflow, WebGL canvas visible, mobile menu remains functional, no page/console errors
+
+## Deployment readiness
+
+Commit `70d6f67651d1f2106a505e94afcced38bf388309` adds `vercel.json` with static clean URLs and baseline security headers.
