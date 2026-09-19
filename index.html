@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#eef8ff" />
+  <meta name="description" content="SENZ Strategic Communications and Digital Solutions. Influence Through Clarity." />
+  <title>SENZ — Influence Through Clarity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#07142b;--blue:#2451d9;--electric:#0878ff;--cyan:#8fd3ff;--ink:#071027;--muted:#51627d;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:#eaf7ff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}::selection{background:#1d63ff;color:#fff}
+    #world{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none}
+    .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+    header{position:fixed;top:0;left:0;right:0;z-index:20;height:86px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2.8vw;padding:0 5vw;background:linear-gradient(180deg,rgba(247,252,255,.9),rgba(247,252,255,.32),transparent);backdrop-filter:blur(9px);transition:.35s}
+    body[data-scene="2"] header{color:#fff;background:linear-gradient(180deg,rgba(2,9,20,.88),rgba(2,9,20,.28),transparent)}
+    .brand{display:flex;align-items:center;gap:10px}.brand svg{width:42px;height:42px;filter:drop-shadow(0 8px 18px rgba(25,83,255,.18))}
+    .brand-type{display:grid;gap:3px;line-height:1}.brand-type b{font-size:20px;letter-spacing:.34em}.brand-type small{font-size:7px;letter-spacing:.22em;font-weight:800;color:#0d55cc}
+    body[data-scene="2"] .brand-type small{color:#8fd3ff}.nav{display:flex;justify-content:center;gap:clamp(20px,2.4vw,44px);font-size:12px;font-weight:700}.nav a{opacity:.7}.nav a:hover{opacity:1}
+    .pill,.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:999px;font-weight:800;transition:.2s}.pill{min-height:44px;padding:0 19px;background:#07142b;color:#fff;font-size:12px;box-shadow:0 8px 28px rgba(7,20,43,.16)}
+    body[data-scene="2"] .pill{background:#fff;color:#07142b}.pill:hover,.btn:hover{transform:translateY(-2px)}
+    .rail{position:fixed;left:4.8vw;top:50%;transform:translateY(-45%);z-index:15;display:grid;gap:14px;font-size:10px;font-weight:800;letter-spacing:.14em}.rail a{opacity:.28}.rail a.active{opacity:1;color:#1767ff}
+    body[data-scene="2"] .rail{color:#fff}body[data-scene="2"] .rail a.active{color:#8fd3ff}.rail-line{width:1px;height:72px;background:rgba(27,76,146,.18);margin:0 auto 5px;overflow:hidden}.rail-line i{display:block;width:100%;height:100%;transform-origin:top;transform:scaleY(0);background:#1767ff}
+    main{position:relative;z-index:2}.scene{min-height:100svh;position:relative;display:grid;align-items:center;padding:118px 8vw 88px 10vw;overflow:hidden}
+    .scene:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(248,252,255,.97) 0%,rgba(248,252,255,.79) 34%,rgba(248,252,255,.08) 62%,transparent 77%)}
+    .dark{color:#fff}.dark:before{background:linear-gradient(90deg,rgba(2,9,20,.98) 0%,rgba(2,9,20,.84) 35%,rgba(2,9,20,.2) 64%,rgba(2,9,20,.04) 80%)}
+    .copy{width:min(560px,44vw);position:relative;z-index:5}.eyebrow{margin:0 0 14px;font-size:11px;letter-spacing:.32em;font-weight:800;color:#1c5aac}.dark .eyebrow{color:#9dcfff}.num{position:absolute;left:-68px;top:2px;margin:0;font-size:12px;font-weight:700;opacity:.55}
+    h1,h2{margin:0;font-weight:800;letter-spacing:-.064em;line-height:.9}h1{font-size:clamp(54px,6vw,100px)}h2{font-size:clamp(48px,5.25vw,82px)}h1 span,h2 span{color:#1c63f5}.sub{margin:15px 0 0;font-size:clamp(19px,1.7vw,27px);font-weight:700;letter-spacing:-.03em}
+    .body{max-width:500px;color:#334767;line-height:1.62;font-size:15px;margin:16px 0 28px}.hero .body{font-size:clamp(15px,1.25vw,19px);margin-top:26px}.dark .body{color:#b9c9de}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{min-height:46px;padding:0 20px;font-size:12px}.btn-dark{background:#07142b;color:#fff;box-shadow:0 12px 34px rgba(6,24,57,.18)}.btn-ghost{border:1px solid rgba(10,30,75,.22);background:rgba(255,255,255,.4);backdrop-filter:blur(10px)}.btn-blue{background:linear-gradient(135deg,#0a79ff,#1542df);color:#fff;box-shadow:0 15px 42px rgba(9,76,218,.3)}
+    .side{position:absolute;right:4.5vw;top:24%;z-index:5;font-size:10px;line-height:2.12;letter-spacing:.28em;color:#425d83}.dark .side{color:#b8d9ff}
+    .cue{position:absolute;left:10vw;bottom:34px;z-index:5;font-size:9px;letter-spacing:.3em;font-weight:800;color:#506b94;display:flex;align-items:center;gap:12px}.cue span{width:64px;height:1px;background:linear-gradient(90deg,#0e65e7,transparent)}
+    .services{position:absolute;z-index:5;left:10vw;right:8vw;bottom:26px;display:grid;grid-template-columns:repeat(6,1fr);border:1px solid rgba(66,122,185,.14);background:rgba(244,250,255,.48);backdrop-filter:blur(18px);box-shadow:0 22px 80px rgba(19,69,155,.14)}
+    .services article{min-height:98px;padding:14px 12px;border-right:1px solid rgba(66,122,185,.13);display:grid;place-items:center;align-content:center;gap:9px;text-align:center}.services article:last-child{border-right:0}.ico{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(145deg,#1398ff,#163fd9);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34),0 8px 22px rgba(25,94,235,.22)}.services strong{max-width:126px;font-size:9px;line-height:1.25;text-transform:uppercase}
+    .labels,.whitecards{position:absolute;z-index:6;right:8vw;top:21%;width:46vw;height:55vh;pointer-events:none}.labels span{position:absolute;padding:9px 15px;border:1px solid rgba(111,192,255,.45);background:rgba(9,38,78,.32);backdrop-filter:blur(9px);border-radius:5px;color:#d6eeff;font-size:9px;font-weight:800;letter-spacing:.08em;box-shadow:0 0 25px rgba(10,103,255,.14)}.labels span:nth-child(1){left:7%;top:8%}.labels span:nth-child(2){left:42%;top:0}.labels span:nth-child(3){right:1%;top:10%}.labels span:nth-child(4){left:0;top:42%}.labels span:nth-child(5){right:0;top:46%}.labels span:nth-child(6){right:5%;bottom:5%}
+    .whitecards span{position:absolute;display:grid;place-items:center;min-width:132px;min-height:90px;padding:14px;border:1px solid rgba(89,157,225,.3);background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(205,233,255,.22));backdrop-filter:blur(15px);color:#0b2e68;font-size:10px;font-weight:800;text-align:center;box-shadow:0 18px 50px rgba(26,92,176,.14),inset 0 0 25px rgba(255,255,255,.42)}.whitecards span:nth-child(1){left:3%;top:30%;transform:rotate(-4deg)}.whitecards span:nth-child(2){left:36%;top:5%;min-width:186px;min-height:145px;font-size:19px}.whitecards span:nth-child(3){right:1%;top:25%;transform:rotate(4deg)}.whitecards span:nth-child(4){left:14%;bottom:0}.whitecards span:nth-child(5){right:10%;bottom:3%}
+    footer{position:relative;z-index:4;min-height:225px;padding:44px 6vw 32px;background:linear-gradient(180deg,#071327,#030a14);color:#fff;display:grid;grid-template-columns:1.1fr 1fr 1.1fr;align-items:center;gap:28px;border-top:1px solid rgba(122,191,255,.18)}.fbrand{display:flex;align-items:center;gap:12px}.fbrand svg{width:52px;height:52px}.fbrand div{display:grid;gap:8px}.fbrand b{font-size:21px;letter-spacing:.33em}.fbrand span{font-size:8px;letter-spacing:.3em;color:#87a9d2}.flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-size:11px;font-weight:700;color:#cbd7e6}.fmeta{display:grid;justify-items:end;gap:7px;font-size:10px;color:#8297b5}
+    @media(max-width:980px){header{grid-template-columns:1fr auto;padding:0 4vw}.nav{display:none}.scene{padding-left:8vw;padding-right:5vw}.copy{width:min(600px,62vw)}.rail{left:2.6vw}.services{left:8vw;right:5vw;grid-template-columns:repeat(3,1fr)}.services article{min-height:72px}.labels,.whitecards{right:2vw;width:43vw}.side{display:none}}
+    @media(max-width:720px){header{height:72px}.brand svg{width:34px;height:34px}.brand-type b{font-size:16px}.brand-type small{font-size:5.7px}.pill{min-height:39px;padding:0 14px;font-size:10px}.rail{display:none}.scene{padding:104px 6vw 66px;align-items:start}.scene:before{background:linear-gradient(180deg,rgba(248,252,255,.98) 0%,rgba(248,252,255,.9) 48%,rgba(248,252,255,.18) 74%,transparent 100%)}.dark:before{background:linear-gradient(180deg,rgba(2,9,20,.98) 0%,rgba(2,9,20,.93) 50%,rgba(2,9,20,.2) 79%,transparent 100%)}.copy{width:100%}h1{font-size:clamp(50px,15vw,74px)}h2{font-size:clamp(42px,12vw,64px)}.eyebrow{font-size:9px}.num{display:none}.body{max-width:92%;font-size:14px;line-height:1.54}.btn{min-height:42px;padding:0 15px;font-size:10px}.cue{left:6vw;bottom:20px}.services{left:6vw;right:6vw;bottom:18px;grid-template-columns:repeat(2,1fr);max-height:238px;overflow:hidden}.services article{min-height:70px;padding:8px}.services strong{font-size:8px}.ico{width:29px;height:29px;font-size:11px}.labels{right:5vw;left:5vw;top:auto;bottom:5vh;width:auto;height:31vh}.labels span{font-size:7px;padding:7px 10px}.whitecards{right:3vw;left:3vw;top:auto;bottom:4vh;width:auto;height:33vh;transform:scale(.8);transform-origin:bottom center}.whitecards span{min-width:96px;min-height:66px;font-size:8px}.whitecards span:nth-child(2){min-width:136px;min-height:105px;font-size:14px}footer{grid-template-columns:1fr;padding:38px 6vw 30px}.flinks{justify-content:flex-start}.fmeta{justify-items:start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.001ms!important}}
+  </style>
+</head>
+<body data-scene="0">
+<canvas id="world" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+<header>
+  <a class="brand" href="#s1" aria-label="SENZ home">
+    <svg viewBox="0 0 72 72" aria-hidden="true"><defs><linearGradient id="g" x1="10" y1="8" x2="62" y2="64"><stop stop-color="#0B6DFF"/><stop offset="1" stop-color="#1439E8"/></linearGradient></defs><path d="M50 5 63 18 50 31 37 18 50 5Z" fill="url(#g)"/><path d="M28 18c-8 0-14 6-14 14 0 7 5 12 12 14l14 4c3 1 5 3 5 6 0 4-3 7-8 7H20L7 50h29l-11-9c-2-2-3-4-3-6 0-4 3-7 8-7h18L35 18H28Z" fill="url(#g)"/></svg>
+    <span class="brand-type"><b>S E N Z</b><small>STRATEGIC COMMUNICATIONS</small></span>
+  </a>
+  <nav class="nav"><a href="#s1">Home</a><a href="#s2">Services</a><a href="#s3">Solutions</a><a href="#s4">White Label</a><a href="#footer">Contact</a></nav>
+  <a class="pill" href="mailto:partnerships@senzpr.com">Let's Talk ↗</a>
+</header>
+
+<aside class="rail"><span class="rail-line"><i></i></span><a class="active" href="#s1">01</a><a href="#s2">02</a><a href="#s3">03</a><a href="#s4">04</a></aside>
+
+<main>
+<section id="s1" class="scene hero">
+  <div class="copy"><p class="eyebrow">INFLUENCE THROUGH CLARITY</p><h1>BRANDS<br>MOVE PEOPLE.<br><span>WE MAKE IT HAPPEN.</span></h1><p class="body">Strategic communications, digital solutions, and white-label technology for a clearer, sharper, and more visible tomorrow.</p><div class="actions"><a class="btn btn-dark" href="mailto:partnerships@senzpr.com">Start a Conversation ↗</a><a class="btn btn-ghost" href="#s2">Explore Our Work ↓</a></div></div>
+  <div class="side">STRATEGY<br>VISIBILITY<br>TECHNOLOGY<br>REAL IMPACT</div><div class="cue">SCROLL <span></span></div>
+</section>
+
+<section id="s2" class="scene">
+  <div class="copy"><p class="num">02</p><p class="eyebrow">OUR EXPERTISE</p><h2>STRATEGY<br><span>MEETS</span> EXECUTION</h2><p class="sub">From ideas to real-world impact.</p><p class="body">We help brands communicate with purpose, connect with the right audience, and grow through smart strategy and technology.</p><a class="btn btn-dark" href="#s3">See Digital Solutions →</a></div>
+  <div class="services"><article><span class="ico">✦</span><strong>Branding & Identity</strong></article><article><span class="ico">◖</span><strong>PR & Strategic Communications</strong></article><article><span class="ico">●●●</span><strong>Social Media Management</strong></article><article><span class="ico">▤</span><strong>Content & Messaging</strong></article><article><span class="ico">▥</span><strong>Campaign Strategy</strong></article><article><span class="ico">◆</span><strong>Reputation & Visibility</strong></article></div>
+  <div class="side">PEOPLE<br>IDEAS<br>BRANDS<br>GROWTH</div>
+</section>
+
+<section id="s3" class="scene dark">
+  <div class="copy"><p class="num">03</p><p class="eyebrow">DIGITAL SOLUTIONS</p><h2>TECHNOLOGY<br>THAT <span>AMPLIFIES</span></h2><p class="sub">Custom. Scalable. Yours.</p><p class="body">From websites to automation, AI tools to booking systems, we build digital products that work for your goals — or we build them under your brand.</p><a class="btn btn-blue" href="#s4">Explore Digital Solutions →</a></div>
+  <div class="labels"><span>WEBSITES</span><span>AUTOMATION</span><span>APPS</span><span>AI SOLUTIONS</span><span>BOOKING SYSTEMS</span><span>INTEGRATIONS</span></div>
+  <div class="side">SAME TECHNOLOGY.<br>YOUR BRAND.<br>BIGGER<br>OPPORTUNITIES.</div>
+</section>
+
+<section id="s4" class="scene">
+  <div class="copy"><p class="num">04</p><p class="eyebrow">WHITE-LABEL OPPORTUNITIES</p><h2>BUILD MORE<br><span>UNDER YOUR BRAND</span></h2><p class="sub">Proven. Products. Real revenue.</p><p class="body">Get ready-made digital solutions you can resell, customize, and grow — with our support behind you every step of the way.</p><a class="btn btn-dark" href="mailto:partnerships@senzpr.com?subject=White-label%20partnership">Start Your White-Label Business ↗</a></div>
+  <div class="whitecards"><span>AI APPS</span><span>YOUR BRAND HERE</span><span>BOOKING SYSTEMS</span><span>E-COMMERCE</span><span>BUSINESS TOOLS</span></div>
+  <div class="side">NEW MARKET<br>MORE REVENUE<br>A STRONGER<br>TOMORROW</div>
+</section>
+</main>
+
+<footer id="footer"><div class="fbrand"><svg viewBox="0 0 72 72" aria-hidden="true"><path d="M50 5 63 18 50 31 37 18 50 5Z" fill="#2467ff"/><path d="M28 18c-8 0-14 6-14 14 0 7 5 12 12 14l14 4c3 1 5 3 5 6 0 4-3 7-8 7H20L7 50h29l-11-9c-2-2-3-4-3-6 0-4 3-7 8-7h18L35 18H28Z" fill="#2467ff"/></svg><div><b>S E N Z</b><span>INFLUENCE THROUGH CLARITY</span></div></div><div class="flinks"><a href="#s1">Home</a><a href="#s2">Services</a><a href="#s3">Solutions</a><a href="#s4">White Label</a><a href="mailto:partnerships@senzpr.com">Contact</a></div><div class="fmeta"><a href="https://senzpr.com">senzpr.com</a><a href="mailto:partnerships@senzpr.com">partnerships@senzpr.com</a><span>© 2026 SENZ</span></div></footer>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
+
+const canvas=document.getElementById('world');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(36,innerWidth/innerHeight,.1,120);camera.position.set(0,2.7,16);
+scene.add(new THREE.HemisphereLight(0xffffff,0x1a2c52,2.5));const sun=new THREE.DirectionalLight(0xffffff,4.5);sun.position.set(8,12,10);scene.add(sun);const blue=new THREE.PointLight(0x2f76ff,120,30,2);blue.position.set(6,3,6);scene.add(blue);
+const worlds=[],mats=[[],[],[],[]],reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function reg(m,i){m.transparent=true;mats[i].push(m);return m}
+function b(i,o=.8){return reg(new THREE.MeshPhysicalMaterial({color:0x175fff,metalness:.2,roughness:.08,transmission:.18,thickness:1.2,clearcoat:1,emissive:0x072c88,emissiveIntensity:.3,opacity:o}),i)}
+function g(i,o=.25){return reg(new THREE.MeshPhysicalMaterial({color:0xd8efff,metalness:.05,roughness:.06,transmission:.7,thickness:1.1,clearcoat:1,opacity:o}),i)}
+function c(i,o=.8){return reg(new THREE.MeshStandardMaterial({color:0xc6dcf2,metalness:.94,roughness:.14,opacity:o}),i)}
+function d(i,o=.96){return reg(new THREE.MeshStandardMaterial({color:0x07111f,metalness:.72,roughness:.26,opacity:o}),i)}
+function floor(group,i,dark=false){const m=dark?d(i,.9):reg(new THREE.MeshPhysicalMaterial({color:0xeaf5ff,metalness:.18,roughness:.16,clearcoat:1,opacity:.8}),i);const f=new THREE.Mesh(new THREE.PlaneGeometry(30,16),m);f.rotation.x=-Math.PI/2;f.position.y=-3.2;group.add(f)}
+function addWorld(group,x){group.userData.base=x;worlds.push(group);scene.add(group)}
+(function(){const i=0,q=new THREE.Group();floor(q,i);const curve=new THREE.CatmullRomCurve3([new THREE.Vector3(1.7,2.6,0),new THREE.Vector3(0,2.8,0),new THREE.Vector3(-.8,1.6,0),new THREE.Vector3(.7,.6,0),new THREE.Vector3(1.2,-.7,0),new THREE.Vector3(0,-2,0)]);q.add(new THREE.Mesh(new THREE.TubeGeometry(curve,128,.68,18,false),b(i,.95)));const dia=new THREE.Mesh(new THREE.OctahedronGeometry(.72),b(i,.97));dia.scale.set(1,.75,1);dia.position.set(1.1,4.1,.15);dia.rotation.z=Math.PI/4;q.add(dia);[7.2,8.5,9.8].forEach((r,k)=>{const t=new THREE.Mesh(new THREE.TorusGeometry(r,.08,10,140,Math.PI*.82),c(i,.45));t.rotation.set(Math.PI/2,0,-.2);t.position.set(0,3.7+k*.08,-5.5-k*.7);q.add(t)});for(let k=0;k<11;k++){let h=1.4+(k%5)*.8,x=new THREE.Mesh(new THREE.BoxGeometry(.42,h,.42),g(i,.18));x.position.set(-7+k*1.35,-3.2+h/2,-6.5-(k%3)*.55);q.add(x)}addWorld(q,4.6)})();
+(function(){const i=1,q=new THREE.Group();floor(q,i);const pts=[];for(let k=0;k<=18;k++){let x=-7+k/18*14;pts.push(new THREE.Vector3(x,Math.sin(k*.72)*.65+.3,-1.2+Math.cos(k*.6)*.35))}q.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),160,.23,14,false),b(i,.84)));[-4.3,-1.45,1.45,4.3].forEach((x,k)=>{const n=new THREE.Mesh(new THREE.BoxGeometry(1.7,3.2,.45),g(i,.36));n.position.set(x,.25+Math.sin(k)*.22,-.9);n.rotation.y=-.14+k*.07;q.add(n)});addWorld(q,3.8)})();
+(function(){const i=2,q=new THREE.Group();floor(q,i,true);const slab=new THREE.Mesh(new THREE.CylinderGeometry(4,4.45,.62,64),d(i,.98));slab.position.set(.9,-2.8,0);q.add(slab);const cube=new THREE.Mesh(new THREE.BoxGeometry(3.1,3.1,3.1),g(i,.43));cube.position.set(1.2,.25,0);cube.rotation.set(.1,.55,.05);q.add(cube);const core=new THREE.Mesh(new THREE.BoxGeometry(1.35,1.35,1.35),reg(new THREE.MeshStandardMaterial({color:0x165dff,emissive:0x135dff,emissiveIntensity:4,roughness:.16,metalness:.28,opacity:.96}),i));core.position.copy(cube.position);core.rotation.copy(cube.rotation);q.add(core);const base=new THREE.Mesh(new THREE.BoxGeometry(4.2,.18,2.5),d(i,.98));base.position.set(-3.5,-2.1,1.6);base.rotation.y=-.18;q.add(base);const screen=new THREE.Mesh(new THREE.BoxGeometry(4,2.55,.16),d(i,.98));screen.position.set(-3.55,-.8,.5);screen.rotation.set(-.13,-.18,0);q.add(screen);const palm=new THREE.Mesh(new THREE.BoxGeometry(2.2,1.2,.6),c(i,.92));palm.position.set(5.3,-.9,.6);palm.rotation.set(.18,-.5,-.25);q.add(palm);for(let f=0;f<5;f++)for(let j=0;j<3;j++){const s=new THREE.Mesh(new THREE.CapsuleGeometry(.18,.7,4,12),c(i,.94));s.position.set(4.35+f*.45+j*.45,-.15+f*.11+j*.34,.85+j*.12);s.rotation.set(.22,0,-1+j*.08);q.add(s)}addWorld(q,4.7)})();
+(function(){const i=3,q=new THREE.Group();floor(q,i);const pod=new THREE.Mesh(new THREE.CylinderGeometry(4.4,5.1,.55,72),c(i,.54));pod.position.set(1.6,-2.85,.2);q.add(pod);const main=new THREE.Mesh(new THREE.BoxGeometry(2.8,3.6,2.2),g(i,.48));main.position.set(1.6,.1,.25);q.add(main);[[-2.5,-.35,.4,1.65],[-.55,-1.15,1,1.25],[4.05,-.45,.2,1.6],[5.4,1,-.7,1.1]].forEach((a,k)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(a[3],a[3]*1.18,a[3]*.86),g(i,.4));m.position.set(a[0],a[1],a[2]);m.rotation.y=-.14+k*.08;q.add(m)});const p=new THREE.Mesh(new THREE.TorusGeometry(6.4,.11,12,160),b(i,.45));p.rotation.x=Math.PI/2;p.position.set(1.5,2.5,-5.5);q.add(p);addWorld(q,4.4)})();
+
+let scroll=0,px=0,py=0;const links=[...document.querySelectorAll('.rail a')],fill=document.querySelector('.rail-line i');
+function update(){const max=document.documentElement.scrollHeight-innerHeight;scroll=max>0?scrollY/max:0;const raw=scroll*3,idx=Math.min(3,Math.round(raw));document.body.dataset.scene=idx;fill.style.transform='scaleY('+scroll+')';links.forEach((x,i)=>x.classList.toggle('active',i===idx))}
+addEventListener('scroll',update,{passive:true});addEventListener('pointermove',e=>{px=(e.clientX/innerWidth-.5)*2;py=(e.clientY/innerHeight-.5)*2},{passive:true});addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<700?1.35:1.8));camera.aspect=innerWidth/innerHeight;camera.fov=innerWidth<700?46:36;camera.updateProjectionMatrix()});update();
+const clock=new THREE.Clock(),light=new THREE.Color(0xdff3ff),dark=new THREE.Color(0x030b16);
+function clamp(v){return Math.min(1,Math.max(0,v))}function ease(t){return t*t*(3-2*t)}
+function tick(){const t=clock.getElapsedTime(),raw=scroll*3,db=clamp(1-Math.abs(raw-2));renderer.setClearColor(light.clone().lerp(dark,db),1);worlds.forEach((w,i)=>{const vis=ease(clamp(1-Math.abs(raw-i)));w.visible=vis>.01;w.position.x+=(w.userData.base-(raw-i)*6.5-w.position.x)*.06;w.position.y+=((1-vis)*-.35-w.position.y)*.05;w.rotation.y=(raw-i)*-.12+(reduced?0:px*.018);w.rotation.x=reduced?0:py*-.008;mats[i].forEach(m=>{if(m.userData.o===undefined)m.userData.o=m.opacity;m.opacity=m.userData.o*vis});if(!reduced)w.rotation.z=Math.sin(t*.25+i)*.0025});camera.position.x+=((reduced?0:px*.16)-camera.position.x)*.045;camera.position.y+=(2.7+(reduced?0:py*-.11)-camera.position.y)*.045;camera.lookAt(0,-.1,0);renderer.render(scene,camera);requestAnimationFrame(tick)}tick();
+</script>
+</body>
+</html>
