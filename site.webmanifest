@@ -1,0 +1,16 @@
+{
+  "name": "SENZ Strategic Communications and Digital Solutions",
+  "short_name": "SENZ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07142B",
+  "theme_color": "#2451D9",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
