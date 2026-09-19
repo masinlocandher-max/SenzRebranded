@@ -96,3 +96,19 @@ Post-change browser QA:
 ## Deployment readiness
 
 Commit `70d6f67651d1f2106a505e94afcced38bf388309` adds `vercel.json` with static clean URLs and baseline security headers.
+
+
+## Final polish verification
+
+Commit `f0a27804973b01fa634467853ee18e686010f650` was re-tested in Chromium.
+
+Verified:
+- 6 custom SVG service icons render on desktop and mobile
+- favicon and web manifest links resolve in the document
+- exactly one scene rail item carries `aria-current="step"`
+- scene 04 resolves to scene state 3
+- no horizontal overflow at 1440 × 900 or 390 × 844
+- mobile menu control remains visible
+- no page or console errors
+
+Commit `df69983dcc763d6b9d9c86b7e79b3701923f23cf` fixes the Three.js import-map dependency needed by `RoomEnvironment`; the prior browser module-resolution error is resolved.
