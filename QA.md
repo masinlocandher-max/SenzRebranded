@@ -13,8 +13,10 @@ Desktop viewport:
 - WebGL canvas visible
 - No horizontal overflow
 - No page or console errors
-- Scroll state changes correctly to scene 03
+- Scene 04 resolves to scene state 3 correctly
 - In-page navigation resolves correctly
+- Desktop mobile-menu control stays hidden
+- Social metadata no longer contains escaped newline artifacts
 - SENZ contact mail links are present
 
 Mobile viewport:
@@ -22,6 +24,8 @@ Mobile viewport:
 - No horizontal overflow
 - Hero visible
 - Header CTA visible
+- Accessible mobile menu control visible
+- Menu opens, updates aria-expanded, closes after selection, and routes to the selected scene
 - All six service items remain in the DOM
 - No page or console errors
 
@@ -63,3 +67,13 @@ Above the fold:
 - Explore Our Work
 
 No extra hero badges, fake metrics, dashboard jargon, or testimonial filler were introduced.
+
+
+## Production hardening pass
+
+Commit `1cadb65a432741833fae6bc02dba01880d908910` adds:
+- Accessible mobile navigation rather than hiding the entire site navigation below 720 px
+- Keyboard focus states and a skip-to-content link
+- Escape-key and post-selection menu closing behavior
+- Scene progress based on the four narrative sections rather than total document height, so the footer no longer distorts the 3D scene state
+- Cleanup of the accidental literal newline escapes in social metadata
