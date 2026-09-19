@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://senzpr.com/sitemap.xml
