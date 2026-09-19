@@ -30,6 +30,9 @@ The current build is intentionally self-contained in `index.html`.
 - Scroll-linked scene transitions
 - Desktop and mobile responsive behavior
 - `prefers-reduced-motion` support
+- Accessible mobile navigation, focus states, and scene-state semantics
+- Environment reflections, soft shadows, rim lighting, and atmospheric depth
+- Branded favicon, web manifest, sitemap, robots directives, and 404 page
 - No screenshot-as-interface implementation
 - No fake metrics or generic agency card-stack template
 
